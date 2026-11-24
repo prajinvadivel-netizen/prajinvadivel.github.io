@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prajin | ECE Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #070711;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+    linear-gradient(#00f5ff0b 1px, transparent 1px),
+    linear-gradient(90deg, #00f5ff0b 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: #0c0c18ee;
+    border-bottom: 1px solid #00f5ff55;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Orbitron;
+    color: #00f5ff;
+    font-size: 22px;
+    text-shadow: 0 0 12px #00f5ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #00f5ff;
+}
+
+section {
+    padding: 90px 10%;
+}
+
+.home {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home h1 {
+    font-family: Orbitron;
+    font-size: clamp(40px, 8vw, 75px);
+    margin: 15px 0;
+}
+
+.home h2 {
+    color: #00f5ff;
+}
+
+.home p {
+    color: #aaaac0;
+    max-width: 650px;
+    line-height: 2;
+    margin-top: 20px;
+}
+
+.highlight {
+    color: #00f5ff;
+}
+
+.title {
+    font-family: Orbitron;
+    color: #00f5ff;
+    font-size: 27px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #00f5ff;
+    color: #070711;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px #00f5ff;
+}
+
+.about-box {
+    background: #111124;
+    border-left: 3px solid #00f5ff;
+    padding: 25px;
+    color: #bbb;
+    line-height: 2;
+    border-radius: 8px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #111124;
+    padding: 25px;
+    border: 1px solid #292943;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #00f5ff;
+    box-shadow: 0 0 18px #00f5ff30;
+}
+
+.card h3 {
+    color: #00f5ff;
+    margin: 12px 0;
+}
+
+.card p {
+    color: #aaaac0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d8b4fe;
+    border: 1px solid #a855f7;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill {
+    border: 1px solid #00f5ff;
+    padding: 12px 20px;
+    color: #00f5ff;
+    border-radius: 5px;
+}
+
+.contact-box {
+    background: #111124;
+    padding: 30px;
+    border: 1px solid #292943;
+    border-radius: 10px;
+    line-height: 2.5;
+}
+
+.contact-box a {
+    color: #00f5ff;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaaac0;
+    border-top: 1px solid #292943;
+    font-size: 13px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .8s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 11px;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PRAJIN.DEV</div>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#certificates">CERTIFICATES</a>
+        <a href="#activities">ACTIVITIES</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+<section class="home" id="home">
+    <p class="highlight">WELCOME TO MY PORTFOLIO</p>
+
+    <h1>HI, I'M <span class="highlight">PRAJIN</span></h1>
+
+    <h2>Electronics & Communication Engineering Student</h2>
+
+    <p>
+        First-year ECE student at KPIET College.
+        Passionate about electronics, technology,
+        innovation and developing creative engineering ideas.
+        Learning today, building tomorrow.
+    </p>
+
+    <a href="#about" class="btn">EXPLORE MY PORTFOLIO</a>
+</section>
+
+<section id="about" class="reveal">
+    <h2 class="title">01 // ABOUT ME</h2>
+
+    <div class="about-box">
+        Hello! I am Prajin, currently pursuing my first year
+        in Electronics and Communication Engineering at
+        KPIET College.
+
+        I am interested in electronics, programming,
+        emerging technologies and practical engineering.
+        I believe in continuous learning, creativity
+        and teamwork.
+
+        My goal is to become a skilled engineer and
+        contribute to innovative projects.
+    </div>
+
+    <br>
+
+    <div class="cards">
+        <div class="card">
+            <h3>EDUCATION</h3>
+            <p>ECE - First Year</p>
+        </div>
+
+        <div class="card">
+            <h3>COLLEGE</h3>
+            <p>KPIET College</p>
+        </div>
+
+        <div class="card">
+            <h3>INTEREST</h3>
+            <p>Electronics & Technology</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="reveal">
+    <h2 class="title">02 // TECHNICAL INTERESTS</h2>
+
+    <div class="skills">
+        <span class="skill">MATLAB</span>
+        <span class="skill">Arduino</span>
+        <span class="skill">Electronics</span>
+        <span class="skill">Programming</span>
+        <span class="skill">Innovation</span>
+        <span class="skill">Problem Solving</span>
+        <span class="skill">Communication</span>
+    </div>
+</section>
+
+<section id="certificates" class="reveal">
+    <h2 class="title">03 // CERTIFICATIONS</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>MATLAB Onramp</h3>
+            <p>Completed MATLAB Onramp training.</p>
+            <span class="tag">CERTIFICATION</span>
+        </div>
+
+        <div class="card">
+            <h3>Gemini K-12 Student</h3>
+            <p>Earned Gemini K-12 Student certification.</p>
+            <span class="tag">CERTIFICATION</span>
+        </div>
+
+        <div class="card">
+            <h3>Project Expo 2026</h3>
+            <p>Participated in Project Expo 2026.</p>
+            <span class="tag">PARTICIPATION</span>
+        </div>
+
+        <div class="card">
+            <h3>Ignitron</h3>
+            <p>Participated as a volunteer in Ignitron.</p>
+            <span class="tag">VOLUNTEERING</span>
+        </div>
+
+        <div class="card">
+            <h3>Cinerecap 4.0</h3>
+            <p>Participated in Cinerecap 4.0.</p>
+            <span class="tag">PARTICIPATION</span>
+        </div>
+
+    </div>
+</section>
+
+<section id="activities" class="reveal">
+    <h2 class="title">04 // ACTIVITIES</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Technical Events</h3>
+            <p>Exploring technical events and engineering innovations.</p>
+        </div>
+
+        <div class="card">
+            <h3>Project Participation</h3>
+            <p>Interested in practical projects and creative ideas.</p>
+        </div>
+
+        <div class="card">
+            <h3>Volunteering</h3>
+            <p>Building teamwork and event coordination experience.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="reveal">
+    <h2 class="title">05 // CONTACT ME</h2>
+
+    <div class="contact-box">
+        <p>GitHub:
+            <a href="https://github.com/prajinvadivel" target="_blank">
+                github.com/prajinvadivel
+            </a>
+        </p>
+
+        <p>Email:
+            <a href="mailto:YOUR_EMAIL@gmail.com">
+                YOUR_EMAIL@gmail.com
+            </a>
+        </p>
+
+        <p>LinkedIn:
+            <a href="https://www.linkedin.com/" target="_blank">
+                Connect with me
+            </a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    © 2026 PRAJIN | ECE STUDENT
+    <br>
+    DESIGNED WITH HTML, CSS & JAVASCRIPT
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {threshold: 0.1});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
+</body>
+</html>
